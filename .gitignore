@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+*.xcscmblueprint
+xcuserdata/
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Archive / export output (Xcode Copy App folders)
+LangSwitch 20*/
+
+# Cursor / IDE
+.cursor/
+
+# App packaging artifacts
+*.dmg
+*.zip
