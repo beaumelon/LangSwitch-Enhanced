@@ -14,7 +14,7 @@
 
 | 类别 | 说明 |
 |------|------|
-| **稳定性** | 修复切换可能失效的问题：睡眠/唤醒、屏幕唤醒、重新登录后自动重连地球键监听 |
+| **提高稳定性** | 自动重连地球键监听并保留事件引用，提升长时间使用下的切换稳定性 |
 | **设置面板** | 独立设置窗口：防抖、登录启动、菜单栏图标、HUD、多语言界面等 |
 | **使用统计** | 今日/累计切换次数、近 7 天与本月趋势、输入法占比 |
 | **多语言** | 界面支持 English、简体中文、Français、日本語、한국어、Deutsch、Español |
@@ -35,8 +35,8 @@
 
 ### 方式一：下载 Release（推荐）
 
-1. 在 [Releases](https://github.com/beaumelon/LangSwitch-Enhanced/releases) 页面下载最新 `.app` 或 `.dmg`
-2. 将 `LangSwitch.app` 拖入「应用程序」文件夹
+1. 在 [Releases](https://github.com/beaumelon/LangSwitch-Enhanced/releases) 页面下载最新 `.zip`
+2. 解压后将 `LangSwitch.app` 拖入「应用程序」文件夹
 3. 首次打开若被拦截，请在 **系统设置 → 隐私与安全性** 中允许打开
 
 ### 方式二：自行编译
@@ -105,12 +105,11 @@ LangSwitch 需要两项系统配置才能正常工作：
 
 1. 检查辅助功能权限是否已授予
 2. 确认地球键已设为「不执行任何操作」
-3. 睡眠/唤醒后若失效，一般会自动恢复；仍无效时请重启 LangSwitch
-4. 确认未与其他地球键快捷键冲突
+3. 确认未与其他地球键快捷键冲突
 
 **与原版 LangSwitch 有什么区别？**
 
-本仓库（[beaumelon/LangSwitch-Enhanced](https://github.com/beaumelon/LangSwitch-Enhanced)）是社区维护的增强 fork，包含稳定性修复、设置面板、统计与多语言等，并非 Nikeev 官方版本。若只需最简功能，也可使用 [原版](https://github.com/Nikeev/LangSwitch)。
+本仓库（[beaumelon/LangSwitch-Enhanced](https://github.com/beaumelon/LangSwitch-Enhanced)）是社区维护的增强 fork，包含稳定性增强、设置面板、统计与多语言等，并非 Nikeev 官方版本。若只需最简功能，也可使用 [原版](https://github.com/Nikeev/LangSwitch)。
 
 ---
 
@@ -119,7 +118,7 @@ LangSwitch 需要两项系统配置才能正常工作：
 - 原项目：[Nikeev/LangSwitch](https://github.com/Nikeev/LangSwitch) by [@Nikeev](https://github.com/Nikeev)
 - 许可证：MIT（见 [LICENSE](LICENSE)）
 
-欢迎 Issue 与 Pull Request。若你的改动对上游也有价值，可考虑向原仓库提交 PR。
+欢迎在本仓库提交 Issue 与 Pull Request。
 
 ---
 

@@ -49,6 +49,9 @@ enum L10nKey: String {
     case accessibilityDenied
     case openSystemSettings
     case accessibilityHelp
+    case accessibilityRequiredTitle
+    case accessibilityDeniedWarning
+    case accessibilitySetupSteps
     case version
     case statusBarIconHelp
 
@@ -123,7 +126,16 @@ enum L10n {
         .accessibilityGranted: "Granted",
         .accessibilityDenied: "Not granted",
         .openSystemSettings: "Open System Settings",
-        .accessibilityHelp: "Accessibility permission is required to listen for the Globe key.",
+        .accessibilityHelp: "Accessibility is enabled. LangSwitch can listen for the Globe key and switch input sources in other apps.",
+        .accessibilityRequiredTitle: "Accessibility Required",
+        .accessibilityDeniedWarning: """
+        LangSwitch cannot work properly without Accessibility permission. The menu bar input icon may change, but your actual input method in other apps will not switch.
+        """,
+        .accessibilitySetupSteps: """
+        1. Click “Open System Settings” and enable LangSwitch under Privacy & Security → Accessibility.
+        2. Quit LangSwitch completely, then reopen it.
+        3. Test in Notes or Safari: the input method should actually change while typing.
+        """,
         .version: "Version",
         .statusBarIconHelp: "If the menu bar icon is hidden, relaunch LangSwitch from Applications or Spotlight to show it again.",
         .globeKeySetupTitle: "Globe Key Setup Required",
@@ -178,7 +190,16 @@ enum L10n {
         .accessibilityGranted: "已授权",
         .accessibilityDenied: "未授权",
         .openSystemSettings: "打开系统设置",
-        .accessibilityHelp: "需要辅助功能权限才能监听地球键。若切换失效，请检查此项。",
+        .accessibilityHelp: "辅助功能已开启，LangSwitch 可在其他应用中监听地球键并真正切换输入法。",
+        .accessibilityRequiredTitle: "必须开启辅助功能权限",
+        .accessibilityDeniedWarning: """
+        未授权时 LangSwitch 无法正常使用。按地球键可能只改变菜单栏输入法图标，但在备忘录、浏览器等应用中并不能真正切换输入法。
+        """,
+        .accessibilitySetupSteps: """
+        1. 点击「打开系统设置」，在「隐私与安全性 → 辅助功能」中启用 LangSwitch。
+        2. 完全退出 LangSwitch 后重新打开。
+        3. 在备忘录或 Safari 中测试：打字时的输入法应切实改变。
+        """,
         .version: "版本",
         .statusBarIconHelp: "隐藏菜单栏图标后，可从「应用程序」或 Spotlight 重新打开本程序以再次显示图标。",
         .globeKeySetupTitle: "需要配置地球键",
@@ -233,7 +254,16 @@ enum L10n {
         .accessibilityGranted: "Autorisé",
         .accessibilityDenied: "Non autorisé",
         .openSystemSettings: "Ouvrir Réglages Système",
-        .accessibilityHelp: "L’autorisation Accessibilité est requise pour écouter la touche Globe.",
+        .accessibilityHelp: "L’accessibilité est activée. LangSwitch peut écouter la touche Globe et changer réellement de source de saisie dans les autres apps.",
+        .accessibilityRequiredTitle: "Accessibilité requise",
+        .accessibilityDeniedWarning: """
+        Sans l’autorisation Accessibilité, LangSwitch ne fonctionne pas correctement. L’icône de la barre de menus peut changer, mais la source de saisie réelle ne change pas dans les autres apps.
+        """,
+        .accessibilitySetupSteps: """
+        1. Cliquez sur « Ouvrir Réglages Système » et activez LangSwitch dans Confidentialité et sécurité → Accessibilité.
+        2. Quittez complètement LangSwitch, puis rouvrez-le.
+        3. Testez dans Notes ou Safari : la source de saisie doit réellement changer pendant la frappe.
+        """,
         .version: "Version",
         .statusBarIconHelp: "Si l’icône est masquée, relancez LangSwitch depuis Applications ou Spotlight pour l’afficher à nouveau.",
         .globeKeySetupTitle: "Configuration de la touche Globe requise",
@@ -288,7 +318,16 @@ enum L10n {
         .accessibilityGranted: "許可済み",
         .accessibilityDenied: "未許可",
         .openSystemSettings: "システム設定を開く",
-        .accessibilityHelp: "地球儀キーを監視するにはアクセシビリティの許可が必要です。",
+        .accessibilityHelp: "アクセシビリティが有効です。LangSwitch は他のアプリでも地球儀キーを監視し、実際に入力ソースを切り替えられます。",
+        .accessibilityRequiredTitle: "アクセシビリティの許可が必要です",
+        .accessibilityDeniedWarning: """
+        許可がないと LangSwitch は正常に動作しません。地球儀キーでメニューバーのアイコンだけが変わり、メモや Safari などでは実際の入力ソースが切り替わらない場合があります。
+        """,
+        .accessibilitySetupSteps: """
+        1. 「システム設定を開く」をクリックし、「プライバシーとセキュリティ → アクセシビリティ」で LangSwitch を有効にします。
+        2. LangSwitch を完全に終了してから再度開きます。
+        3. メモや Safari でテストし、入力中に入力ソースが実際に変わることを確認します。
+        """,
         .version: "バージョン",
         .statusBarIconHelp: "メニューバーアイコンを隠した場合は、アプリケーションまたは Spotlight から LangSwitch を再起動すると再表示できます。",
         .globeKeySetupTitle: "地球儀キーの設定が必要です",
@@ -343,7 +382,16 @@ enum L10n {
         .accessibilityGranted: "허용됨",
         .accessibilityDenied: "허용 안 됨",
         .openSystemSettings: "시스템 설정 열기",
-        .accessibilityHelp: "지구본 키를 감지하려면 손쉬운 사용 권한이 필요합니다.",
+        .accessibilityHelp: "손쉬운 사용 권한이 켜져 있습니다. LangSwitch는 다른 앱에서도 지구본 키를 감지하고 실제로 입력 소스를 전환할 수 있습니다.",
+        .accessibilityRequiredTitle: "손쉬운 사용 권한이 필요합니다",
+        .accessibilityDeniedWarning: """
+        권한이 없으면 LangSwitch가 정상적으로 작동하지 않습니다. 지구본 키를 눌렀을 때 메뉴 막대 아이콘만 바뀌고, 메모나 Safari 등에서는 실제 입력 소스가 바뀌지 않을 수 있습니다.
+        """,
+        .accessibilitySetupSteps: """
+        1. 「시스템 설정 열기」를 누르고 「개인정보 보호 및 보안 → 손쉬운 사용」에서 LangSwitch를 켭니다.
+        2. LangSwitch를 완전히 종료한 뒤 다시 실행합니다.
+        3. 메모 또는 Safari에서 테스트하여 입력 중 입력 소스가 실제로 바뀌는지 확인합니다.
+        """,
         .version: "버전",
         .statusBarIconHelp: "메뉴 막대 아이콘을 숨긴 경우 응용 프로그램 또는 Spotlight에서 LangSwitch를 다시 실행하면 다시 표시됩니다.",
         .globeKeySetupTitle: "지구본 키 설정 필요",
@@ -398,7 +446,16 @@ enum L10n {
         .accessibilityGranted: "Erteilt",
         .accessibilityDenied: "Nicht erteilt",
         .openSystemSettings: "Systemeinstellungen öffnen",
-        .accessibilityHelp: "Die Bedienungshilfen-Berechtigung ist für die Globustaste erforderlich.",
+        .accessibilityHelp: "Bedienungshilfen sind aktiviert. LangSwitch kann die Globustaste überwachen und in anderen Apps wirklich die Eingabequelle wechseln.",
+        .accessibilityRequiredTitle: "Bedienungshilfen erforderlich",
+        .accessibilityDeniedWarning: """
+        Ohne die Bedienungshilfen-Berechtigung funktioniert LangSwitch nicht richtig. Das Symbol in der Menüleiste kann sich ändern, aber die tatsächliche Eingabequelle in anderen Apps bleibt unverändert.
+        """,
+        .accessibilitySetupSteps: """
+        1. Klicken Sie auf „Systemeinstellungen öffnen“ und aktivieren Sie LangSwitch unter Datenschutz & Sicherheit → Bedienungshilfen.
+        2. Beenden Sie LangSwitch vollständig und starten Sie es neu.
+        3. Testen Sie in Notizen oder Safari: Die Eingabequelle sollte sich beim Tippen wirklich ändern.
+        """,
         .version: "Version",
         .statusBarIconHelp: "Wenn das Symbol ausgeblendet ist, starten Sie LangSwitch über Programme oder Spotlight neu, um es wieder anzuzeigen.",
         .globeKeySetupTitle: "Globustaste muss eingerichtet werden",
@@ -453,7 +510,16 @@ enum L10n {
         .accessibilityGranted: "Concedido",
         .accessibilityDenied: "No concedido",
         .openSystemSettings: "Abrir Ajustes del Sistema",
-        .accessibilityHelp: "Se requiere permiso de Accesibilidad para escuchar la tecla Globo.",
+        .accessibilityHelp: "Accesibilidad está activada. LangSwitch puede escuchar la tecla Globo y cambiar realmente el método de entrada en otras apps.",
+        .accessibilityRequiredTitle: "Se requiere Accesibilidad",
+        .accessibilityDeniedWarning: """
+        Sin el permiso de Accesibilidad, LangSwitch no funciona correctamente. El icono de la barra de menús puede cambiar, pero el método de entrada real no cambia en otras apps.
+        """,
+        .accessibilitySetupSteps: """
+        1. Pulse «Abrir Ajustes del Sistema» y active LangSwitch en Privacidad y seguridad → Accesibilidad.
+        2. Cierre LangSwitch por completo y vuelva a abrirlo.
+        3. Pruebe en Notas o Safari: el método de entrada debe cambiar realmente al escribir.
+        """,
         .version: "Version",
         .statusBarIconHelp: "Si el icono está oculto, vuelva a abrir LangSwitch desde Aplicaciones o Spotlight para mostrarlo de nuevo.",
         .globeKeySetupTitle: "Configuración de la tecla Globo requerida",

@@ -13,11 +13,13 @@ struct SettingsView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 22) {
+            settingsHeader
+
+            permissionsSection
+
             if globeKeyNeedsSetup {
                 globeKeySetupBanner
             }
-
-            settingsHeader
 
             SettingsSectionCard(title: L10n.t(.sectionLanguage), systemImage: "character.bubble") {
                 HStack {
@@ -68,24 +70,6 @@ struct SettingsView: View {
                 }
             }
 
-            SettingsSectionCard(title: L10n.t(.sectionPermissions), systemImage: "lock.shield") {
-                HStack(alignment: .center, spacing: 12) {
-                    SettingsStatusBadge(
-                        granted: accessibility.isGranted,
-                        grantedText: L10n.t(.accessibilityGranted),
-                        deniedText: L10n.t(.accessibilityDenied)
-                    )
-                    Spacer()
-                    Button(L10n.t(.openSystemSettings)) {
-                        accessibility.refreshAfterOpeningSystemSettings()
-                        openPrivacySettings()
-                    }
-                    .buttonStyle(.bordered)
-                    .controlSize(.regular)
-                }
-                SettingsHelpText(text: L10n.t(.accessibilityHelp))
-            }
-
             SettingsSectionCard(title: L10n.t(.sectionAbout), systemImage: "info.circle") {
                 HStack {
                     Text(L10n.t(.version))
@@ -107,6 +91,33 @@ struct SettingsView: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: SettingsWindowController.settingsDidRefreshNotification)) { _ in
             refreshGlobeKeyStatus()
+        }
+    }
+
+    private var permissionsSection: some View {
+        SettingsSectionCard(title: L10n.t(.sectionPermissions), systemImage: "lock.shield") {
+            if accessibility.isGranted {
+                HStack(alignment: .center, spacing: 12) {
+                    SettingsStatusBadge(
+                        granted: true,
+                        grantedText: L10n.t(.accessibilityGranted),
+                        deniedText: L10n.t(.accessibilityDenied)
+                    )
+                    Spacer()
+                }
+                SettingsHelpText(text: L10n.t(.accessibilityHelp))
+            } else {
+                SettingsWarningBanner(
+                    title: L10n.t(.accessibilityRequiredTitle),
+                    message: L10n.t(.accessibilityDeniedWarning),
+                    actionTitle: L10n.t(.openSystemSettings),
+                    action: {
+                        accessibility.refreshAfterOpeningSystemSettings()
+                        openPrivacySettings()
+                    }
+                )
+                SettingsHelpText(text: L10n.t(.accessibilitySetupSteps))
+            }
         }
     }
 

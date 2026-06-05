@@ -80,6 +80,6 @@ final class AccessibilityPermissionMonitor: ObservableObject {
     }
 
     private static func evaluate() -> Bool {
-        AXIsProcessTrusted() || EventMonitorStatus.isGlobalMonitorActive
+        AXIsProcessTrusted() && EventMonitorStatus.isGlobalMonitorActive
     }
 }

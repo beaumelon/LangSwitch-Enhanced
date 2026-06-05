@@ -14,7 +14,7 @@ An enhanced macOS menu bar utility, based on [Nikeev/LangSwitch](https://github.
 
 | Area | Description |
 |------|-------------|
-| **Reliability** | Fixes switching failures after sleep/wake, screen wake, and re-login by reconnecting Globe key listeners |
+| **Stability** | Reconnects Globe key listeners and retains event references for more consistent switching over time |
 | **Settings** | Dedicated settings window: debounce, launch at login, menu bar icon, HUD, localized UI, and more |
 | **Statistics** | Today/total switch counts, 7-day and monthly trends, per-input-source breakdown |
 | **Localization** | English, 简体中文, Français, 日本語, 한국어, Deutsch, Español |
@@ -35,8 +35,8 @@ An enhanced macOS menu bar utility, based on [Nikeev/LangSwitch](https://github.
 
 ### Option 1: Download a release (recommended)
 
-1. Download the latest `.app` or `.dmg` from [Releases](https://github.com/beaumelon/LangSwitch-Enhanced/releases)
-2. Move `LangSwitch.app` into your Applications folder
+1. Download the latest `.zip` from [Releases](https://github.com/beaumelon/LangSwitch-Enhanced/releases)
+2. Unzip the archive and move `LangSwitch.app` into your Applications folder
 3. If macOS blocks the first launch, allow it under **System Settings → Privacy & Security**
 
 ### Option 2: Build from source
@@ -105,12 +105,11 @@ macOS may use the Globe key for switching input sources, Emoji & Symbols, dictat
 
 1. Check Accessibility permission
 2. Confirm the Globe key is set to “Do Nothing”
-3. After sleep/wake, switching should recover automatically; if not, restart LangSwitch
-4. Make sure no other Globe key shortcut conflicts
+3. Make sure no other Globe key shortcut conflicts
 
 **How is this different from the original LangSwitch?**
 
-This repo ([beaumelon/LangSwitch-Enhanced](https://github.com/beaumelon/LangSwitch-Enhanced)) is a community-maintained enhanced fork with reliability fixes, a settings panel, statistics, and localization. It is not the official Nikeev release. For a minimal build, see the [original project](https://github.com/Nikeev/LangSwitch).
+This repo ([beaumelon/LangSwitch-Enhanced](https://github.com/beaumelon/LangSwitch-Enhanced)) is a community-maintained enhanced fork with improved stability, a settings panel, statistics, and localization. It is not the official Nikeev release. For a minimal build, see the [original project](https://github.com/Nikeev/LangSwitch).
 
 ---
 
@@ -119,7 +118,7 @@ This repo ([beaumelon/LangSwitch-Enhanced](https://github.com/beaumelon/LangSwit
 - Original project: [Nikeev/LangSwitch](https://github.com/Nikeev/LangSwitch) by [@Nikeev](https://github.com/Nikeev)
 - License: MIT — see [LICENSE](LICENSE)
 
-Issues and pull requests are welcome. If your changes benefit upstream, consider opening a PR to the original repository.
+Issues and pull requests are welcome in this repository.
 
 ---
 
