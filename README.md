@@ -6,8 +6,6 @@ An enhanced macOS menu bar utility, based on [Nikeev/LangSwitch](https://github.
 
 > **Unofficial fork** · Maintained by [@beaumelon](https://github.com/beaumelon) · Thanks to [@Nikeev](https://github.com/Nikeev) for the original project ([MIT License](LICENSE))
 
-![langswitch-example](https://github.com/Nikeev/LangSwitch/assets/1555773/2850313a-f70d-4f76-b629-3d5798754f86)
-
 ---
 
 ## Improvements over the original

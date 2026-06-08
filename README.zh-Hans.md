@@ -6,8 +6,6 @@
 
 > **非官方 fork** · 维护者 [@beaumelon](https://github.com/beaumelon) · 感谢原作者 [@Nikeev](https://github.com/Nikeev) 的开源项目（[MIT License](LICENSE)）
 
-![langswitch-example](https://github.com/Nikeev/LangSwitch/assets/1555773/2850313a-f70d-4f76-b629-3d5798754f86)
-
 ---
 
 ## 相对原版的改进
