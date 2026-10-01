@@ -190,13 +190,29 @@ enum InputSourceHotkey {
         return false
     }
 
-    private static func loadSymbolicHotkey(id: Int) -> KeyboardShortcut? {
+    /// True when "Select next source in Input menu" is explicitly turned off in System Settings.
+    /// The fallback shortcut is then not consumed by the system and reaches the focused app as a keystroke.
+    static var isNextInputSourceHotkeyDisabled: Bool {
+        guard let entry = symbolicHotkeyEntry(id: nextInputSourceHotkeyID),
+              let enabled = entry["enabled"] else {
+            return false
+        }
+        return !isHotkeyEnabled(enabled)
+    }
+
+    private static func symbolicHotkeyEntry(id: Int) -> [String: Any]? {
         let plistURL = FileManager.default.homeDirectoryForCurrentUser
             .appendingPathComponent("Library/Preferences/com.apple.symbolichotkeys.plist")
 
         guard let plist = NSDictionary(contentsOf: plistURL),
-              let hotkeys = plist["AppleSymbolicHotKeys"] as? [String: Any],
-              let entry = hotkeys[String(id)] as? [String: Any],
+              let hotkeys = plist["AppleSymbolicHotKeys"] as? [String: Any] else {
+            return nil
+        }
+        return hotkeys[String(id)] as? [String: Any]
+    }
+
+    private static func loadSymbolicHotkey(id: Int) -> KeyboardShortcut? {
+        guard let entry = symbolicHotkeyEntry(id: id),
               isHotkeyEnabled(entry["enabled"]),
               let value = entry["value"] as? [String: Any],
               let parameters = value["parameters"] as? [Int],

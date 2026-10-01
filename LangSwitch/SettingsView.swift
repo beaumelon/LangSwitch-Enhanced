@@ -10,6 +10,7 @@ struct SettingsView: View {
     @ObservedObject private var settings = AppSettings.shared
     @ObservedObject private var accessibility = AccessibilityPermissionMonitor.shared
     @State private var globeKeyNeedsSetup = GlobeKeyConfigurator.needsConfiguration
+    @State private var inputSourceShortcutDisabled = InputSourceHotkey.isNextInputSourceHotkeyDisabled
 
     var body: some View {
         VStack(alignment: .leading, spacing: 22) {
@@ -19,6 +20,10 @@ struct SettingsView: View {
 
             if globeKeyNeedsSetup {
                 globeKeySetupBanner
+            }
+
+            if inputSourceShortcutDisabled {
+                inputSourceShortcutBanner
             }
 
             SettingsSectionCard(title: L10n.t(.sectionLanguage), systemImage: "character.bubble") {
@@ -84,13 +89,13 @@ struct SettingsView: View {
         .frame(minWidth: 500, maxWidth: .infinity, alignment: .leading)
         .onAppear {
             accessibility.refresh()
-            refreshGlobeKeyStatus()
+            refreshKeyboardSetupStatus()
         }
         .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
-            refreshGlobeKeyStatus()
+            refreshKeyboardSetupStatus()
         }
         .onReceive(NotificationCenter.default.publisher(for: SettingsWindowController.settingsDidRefreshNotification)) { _ in
-            refreshGlobeKeyStatus()
+            refreshKeyboardSetupStatus()
         }
     }
 
@@ -128,13 +133,26 @@ struct SettingsView: View {
             actionTitle: L10n.t(.globeKeySetupOpenKeyboard),
             action: {
                 GlobeKeyConfigurator.openKeyboardSettings()
-                refreshGlobeKeyStatus()
+                refreshKeyboardSetupStatus()
             }
         )
     }
 
-    private func refreshGlobeKeyStatus() {
+    private var inputSourceShortcutBanner: some View {
+        SettingsWarningBanner(
+            title: L10n.t(.inputSourceShortcutDisabledTitle),
+            message: L10n.t(.inputSourceShortcutDisabledMessage),
+            actionTitle: L10n.t(.globeKeySetupOpenKeyboard),
+            action: {
+                GlobeKeyConfigurator.openKeyboardSettings()
+                refreshKeyboardSetupStatus()
+            }
+        )
+    }
+
+    private func refreshKeyboardSetupStatus() {
         globeKeyNeedsSetup = GlobeKeyConfigurator.needsConfiguration
+        inputSourceShortcutDisabled = InputSourceHotkey.isNextInputSourceHotkeyDisabled
     }
 
     private var settingsHeader: some View {

@@ -58,6 +58,9 @@ enum L10nKey: String {
     case globeKeySetupTitle
     case globeKeySetupMessage
     case globeKeySetupOpenKeyboard
+
+    case inputSourceShortcutDisabledTitle
+    case inputSourceShortcutDisabledMessage
 }
 
 enum L10n {
@@ -145,6 +148,12 @@ enum L10n {
         Open System Settings → Keyboard, then set “Press 🌐 key to” (or “Press fn key to”) to “Do Nothing”.
         """,
         .globeKeySetupOpenKeyboard: "Open Keyboard Settings",
+        .inputSourceShortcutDisabledTitle: "Input Source Shortcut Disabled",
+        .inputSourceShortcutDisabledMessage: """
+        LangSwitch switches input sources by sending the system “Select next source in Input menu” shortcut, but it is turned off. Some apps (e.g. Slack, Telegram) may receive it as a typed space, and switching may be delayed or not work.
+
+        Open System Settings → Keyboard → Keyboard Shortcuts → Input Sources, then enable “Select next source in Input menu”.
+        """,
     ]
 
     private static let zhHans: [L10nKey: String] = [
