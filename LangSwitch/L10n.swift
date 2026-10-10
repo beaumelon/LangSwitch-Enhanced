@@ -218,6 +218,12 @@ enum L10n {
         请打开 系统设置 → 键盘，将「按下 🌐 键以」或「按下 Fn 键以」设为「不执行任何操作」。
         """,
         .globeKeySetupOpenKeyboard: "打开键盘设置",
+        .inputSourceShortcutDisabledTitle: "输入法切换快捷键已关闭",
+        .inputSourceShortcutDisabledMessage: """
+        LangSwitch 通过系统「选择输入法菜单中的下一个输入法」快捷键切换输入法，但该快捷键当前已关闭。部分应用（如 Slack、Telegram）可能会收到一个空格，切换也会变慢或失效。
+
+        请打开「系统设置 → 键盘 → 键盘快捷键 → 输入法」，启用「选择输入法菜单中的下一个输入法」。
+        """,
     ]
 
     private static let fr: [L10nKey: String] = [
@@ -282,6 +288,12 @@ enum L10n {
         Ouvrez Réglages Système → Clavier, puis réglez « Appuyer sur la touche 🌐 pour » sur « Ne rien faire ».
         """,
         .globeKeySetupOpenKeyboard: "Ouvrir Réglages Clavier",
+        .inputSourceShortcutDisabledTitle: "Raccourci de source d’entrée désactivé",
+        .inputSourceShortcutDisabledMessage: """
+        LangSwitch change de source d’entrée via le raccourci système « Sélectionner la source suivante dans le menu Entrée », mais il est désactivé. Certaines apps (p. ex. Slack, Telegram) peuvent recevoir une espace, et le changement peut être lent ou échouer.
+
+        Ouvrez Réglages Système → Clavier → Raccourcis clavier → Sources d’entrée, puis activez « Sélectionner la source suivante dans le menu Entrée ».
+        """,
     ]
 
     private static let ja: [L10nKey: String] = [
@@ -346,6 +358,12 @@ enum L10n {
         システム設定 → キーボード で「🌐 キーを押して」を「何もしない」に設定してください。
         """,
         .globeKeySetupOpenKeyboard: "キーボード設定を開く",
+        .inputSourceShortcutDisabledTitle: "入力ソース切り替えショートカットがオフです",
+        .inputSourceShortcutDisabledMessage: """
+        LangSwitch はシステムの「入力メニューから次の入力ソースを選択」ショートカットで切り替えますが、現在オフになっています。Slack や Telegram などでスペースが入力されたり、切り替えが遅れたり動作しないことがあります。
+
+        「システム設定 → キーボード → キーボードショートカット → 入力ソース」を開き、「入力メニューから次の入力ソースを選択」を有効にしてください。
+        """,
     ]
 
     private static let ko: [L10nKey: String] = [
@@ -410,6 +428,12 @@ enum L10n {
         시스템 설정 → 키보드에서 「🌐 키를 눌러」를 「아무 작업도 안 함」으로 설정하세요.
         """,
         .globeKeySetupOpenKeyboard: "키보드 설정 열기",
+        .inputSourceShortcutDisabledTitle: "입력 소스 단축키가 꺼져 있음",
+        .inputSourceShortcutDisabledMessage: """
+        LangSwitch는 시스템의 「입력 메뉴에서 다음 소스 선택」 단축키로 입력기를 전환하지만, 현재 꺼져 있습니다. Slack, Telegram 등에서 공백이 입력되거나 전환이 늦어지거나 실패할 수 있습니다.
+
+        「시스템 설정 → 키보드 → 키보드 단축키 → 입력 소스」에서 「입력 메뉴에서 다음 소스 선택」을 켜세요.
+        """,
     ]
 
     private static let de: [L10nKey: String] = [
@@ -474,6 +498,12 @@ enum L10n {
         Öffnen Sie Systemeinstellungen → Tastatur und setzen Sie „Bei Drücken der 🌐-Taste“ auf „Keine Aktion“.
         """,
         .globeKeySetupOpenKeyboard: "Tastatureinstellungen öffnen",
+        .inputSourceShortcutDisabledTitle: "Eingabequellen-Kurzbefehl deaktiviert",
+        .inputSourceShortcutDisabledMessage: """
+        LangSwitch wechselt Eingabequellen über den Systemkurzbefehl „Nächste Quelle im Eingabemenü auswählen“, der derzeit deaktiviert ist. In manchen Apps (z. B. Slack, Telegram) kann ein Leerzeichen ankommen, und der Wechsel kann verzögert sein oder fehlschlagen.
+
+        Öffnen Sie Systemeinstellungen → Tastatur → Tastaturkurzbefehle → Eingabequellen und aktivieren Sie „Nächste Quelle im Eingabemenü auswählen“.
+        """,
     ]
 
     private static let es: [L10nKey: String] = [
@@ -538,5 +568,11 @@ enum L10n {
         Abra Ajustes del Sistema → Teclado y configure «Al pulsar la tecla 🌐» en «No hacer nada».
         """,
         .globeKeySetupOpenKeyboard: "Abrir ajustes de Teclado",
+        .inputSourceShortcutDisabledTitle: "Atajo de fuente de entrada desactivado",
+        .inputSourceShortcutDisabledMessage: """
+        LangSwitch cambia la fuente de entrada con el atajo del sistema «Seleccionar la siguiente fuente en el menú Entrada», pero está desactivado. Algunas apps (p. ej. Slack, Telegram) pueden recibir un espacio, y el cambio puede retrasarse o fallar.
+
+        Abre Ajustes del Sistema → Teclado → Atajos de teclado → Fuentes de entrada y activa «Seleccionar la siguiente fuente en el menú Entrada».
+        """,
     ]
 }
